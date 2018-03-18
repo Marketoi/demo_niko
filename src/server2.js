@@ -3,7 +3,7 @@ var app = express();
 // var fs = require("fs");
 // var bodyParser = require('body-parser');
 const HTMLToPDF = require('html5-to-pdf')
-const body = "<html><body><h1>Hi!</h1></body></html>"
+const body = "<html><body><h1>Hi Niko!</h1><p>How are you?</p></body></html>"
 // var jsonParser = bodyParser.json()
 
 app.get('/api', function (req, res) {

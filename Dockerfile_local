@@ -6,11 +6,12 @@ RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get install -y nodejs
 
 WORKDIR /usr/src/app
-RUN ln -s /tmp /usr/src/app/file
 
 COPY src/package*.json ./
 
 RUN npm install
+RUN mkdir file
+RUN chmod -R 666 file
 
 COPY ./src/ .
 COPY ./do_start.sh .
