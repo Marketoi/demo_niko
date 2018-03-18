@@ -1,0 +1,19 @@
+FROM debian:jessie
+
+RUN apt-get update
+RUN apt-get install -y npm curl libgtk2.0-0 libgconf-2-4 libasound2 libxtst6 libxss1 libnss3 xvfb  build-essential
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
+RUN apt-get install -y nodejs
+
+WORKDIR /usr/src/app
+RUN ln -s /tmp /usr/src/app/file
+
+COPY src/package*.json ./
+
+RUN npm install
+
+COPY ./src/ .
+COPY ./do_start.sh .
+
+EXPOSE 8080
+CMD [ "bash", "do_start.sh" ]
